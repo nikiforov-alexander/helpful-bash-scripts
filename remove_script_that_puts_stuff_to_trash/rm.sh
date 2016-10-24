@@ -55,14 +55,13 @@ parse_args () { _
         case $# in	
             0)
                 em 0 args
+                helper 
+                exit 1
             ;;
             *)
                 case $1 in 
                     h) helper     && exit 0 ;;
                     v) ss_and_vim && exit 0 ;;
-                    *)
-                        em not implemented && exit 0
-                    ;;
                 esac
             ;;
         esac
@@ -72,15 +71,16 @@ parse_args () { _
 set_init_vars () { _
     var pwd $PWD -set_tail
 
-    if [ -z MY_TRASH_DIR ] ; then
-        var MY_TRASH_DIR="$HOME/.trash" \
-            -check_if_dir_exists || exit 1 
+    if [ -z $MY_TRASH_DIR ] ; then
+        var MY_TRASH_DIR "$HOME/.trash" \
+            -crdir_if_not_exists 
     fi
 
     var day \
         `date | awk '
             {for(i=1;i<3;i++) printf("%s-",$i); printf("%s",$3)}
             '`
+
     var hour \
         `date | awk '{print $4}' | awk -F":" '{print $1}'`
 
@@ -88,13 +88,30 @@ set_init_vars () { _
         `date | awk '{print $4}'`
 
     var dir_w_removed_file_in_trash \
-        "$T/$day/$hour/${PWD:1:${#PWD}}/${time//:/-}"
-        -crdir_if_not_exists || exit 1 
+        "$MY_TRASH_DIR/$day/$hour/${PWD:1:${#PWD}}/${time//:/-}"
+
+    mkdir -p -v $dir_w_removed_file_in_trash
 } 
 
-#                         #  body #                         #  
-set_init_vars 
+move_file_to_trash () { _ $@
+    mv -v $1 $2
+} 
 
+remove () { _ $@
+    for file in $@ ; do
+        if [ -f $pwd/$file ] ; then
+            move_file_to_trash \
+                $file \
+                $dir_w_removed_file_in_trash
+        else
+            em under construction ...
+        fi
+    done
+} 
+#                         #  body #                         #  
 parse_args $@ 
 
+set_init_vars 
+
+remove $@
 #                         #  end #                         #  
