@@ -68,9 +68,30 @@ parse_args () { _
         esac
     fi
 } 
+
 set_init_vars () { _
     var pwd $PWD -set_tail
+
+    if [ -z MY_TRASH_DIR ] ; then
+        var MY_TRASH_DIR="$HOME/.trash" \
+            -check_if_dir_exists || exit 1 
+    fi
+
+    var day \
+        `date | awk '
+            {for(i=1;i<3;i++) printf("%s-",$i); printf("%s",$3)}
+            '`
+    var hour \
+        `date | awk '{print $4}' | awk -F":" '{print $1}'`
+
+    var time \
+        `date | awk '{print $4}'`
+
+    var dir_w_removed_file_in_trash \
+        "$T/$day/$hour/${PWD:1:${#PWD}}/${time//:/-}"
+        -crdir_if_not_exists || exit 1 
 } 
+
 #                         #  body #                         #  
 set_init_vars 
 
