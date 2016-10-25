@@ -5,6 +5,7 @@
 :toc-placement: preamble
 :sectnums:
 :helpful_bash_funcs_sh: link:./include_bash_scripts/helpful_bash_funcs.sh[helpful_bash_funcs.sh]
+:aliases_sh: link:./aliases.sh[aliases.sh]
 
 toc::[]
 
@@ -32,4 +33,25 @@ In this file a lot of very simple, yet needed functions are defined:
 * `echo_var` : echoes variable by name 
 * `cd` : enhanced `cd` function, used in scripts
 * `exit` : enhanced `exit` function, when used in scripts, prints more info
+
+== Aliases
+
+File with Bash aliases {aliases_sh} has collection of very simple but useful 
+commands,
+and is used to run many of the scripts defined here. It may be better to
+add all of them to `$PATH` but I liked it this way.
+
+To follow naming convention of `.bash_aliases` I usually create a link 
+in `$HOME` directory to this file:
+
+```bash
+ln -s /path/to/aliases.sh ~/.bash_aliases
+```
+
+In the file itself I use `set_alias` function to keep track of aliases I've
+created. It might seem as overkill, but I like verbosity. Although for now
+`set_alias` function does not do much.
+
+Later I plan to include description for alias may be.
+
 
