@@ -1,0 +1,35 @@
+= Collection of Helpful Bash Scripts
+:experimental:
+:toc:
+:toclevels: 5
+:toc-placement: preamble
+:sectnums:
+:helpful_bash_funcs_sh: link:./include_bash_scripts/helpful_bash_funcs.sh[helpful_bash_funcs.sh]
+
+toc::[]
+
+== Main File Included Everywhere
+
+Main file that is included everywhere is {helpful_bash_funcs_sh}.
+In this file a lot of very simple, yet needed functions are defined:
+
+* `cf` : enhanced cat file 
+* `em` : enhanced echo 
+* `_` : bash decorator 
+* `crdir` : enhanced mkdir
+* `crdir_if_not_exist` : enhanced mkdir, check is dir exists
+* `crdir_if_exist_overwrite` : enhanced mkdir, overwrites dir if exists
+* `ss_and_vim` : creates alias `vv` that after you type 
+    `ss` will open script file
+* colorful functions: make output colorful
+    ** `gray`
+    ** `red`
+    ** `green`
+    ** `blue`
+    ** `resetcolor`
+* `check_if_it_exists` : checks if file exists
+* `set_var` : enhanced set of variabe
+* `echo_var` : echoes variable by name 
+* `cd` : enhanced `cd` function, used in scripts
+* `exit` : enhanced `exit` function, when used in scripts, prints more info
+
