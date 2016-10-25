@@ -99,12 +99,14 @@ move_file_to_trash () { _ $@
 
 remove () { _ $@
     for file in $@ ; do
-        if [ -f $pwd/$file ] ; then
+        if [ -e $pwd/$file ] ; then
             move_file_to_trash \
                 $file \
                 $dir_w_removed_file_in_trash
         else
             em under construction ...
+            em please use this script to delete files
+            em ONLY from current directory
         fi
     done
 } 
