@@ -46,6 +46,21 @@ set_alias () { _ $@
     alias $alias_name
 } 
 
+set_alias_to_script_file () { _ $@
+
+    [ $# -ne 1 ] && echo run with 1 arg only && return 1
+
+    if [ ! -f $1 ] ; then
+       echo file $1 does not exist 
+       return 1
+    fi
+
+    alias_name=`echo $1 | awk -F"/" '{print $NF}'`    
+    
+    eval "alias $alias_name='$1'"
+
+    alias $alias_name
+} 
 #                            body                           #   
 set_alias v vim
 set_alias vc 'vim ~/.bashrc'
@@ -70,6 +85,9 @@ set_alias gs 'git status'
 set_alias chrome '/opt/google/chrome/google-chrome'
 
 set_alias cx 'chmod +x'
+
+set_alias_to_script_file "$MY_SCRIPTS_DIR/intelliijidea-scripts/run_intellijidea.sh"
+
 #popd these will be defined manually
 alias --  -="popd +0"
 alias -- -1="popd +1"
