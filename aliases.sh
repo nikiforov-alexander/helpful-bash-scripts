@@ -68,6 +68,8 @@ set_alias sa "source ~/.bash_aliases"
 set_alias gs 'git status'
 
 set_alias chrome '/opt/google/chrome/google-chrome'
+
+set_alias cx 'chmod +x'
 #popd these will be defined manually
 alias --  -="popd +0"
 alias -- -1="popd +1"
