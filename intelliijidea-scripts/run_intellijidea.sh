@@ -37,11 +37,12 @@ set_init_vars () { _
         "$MY_TMP_DIR/idea" \
         -crdir_if_not_exists 
 
+    var date \
+        `date | sed "s/ /-/g" | sed "s/:/-/g"`
+
     var idea_log \
         "$idea_tmp_dir/idea-$date.log"
 
-    var date \
-        `date | sed "s/ /-/g" | sed "s/:/-/g"`
 } 
 
 run_idea_in_background () { _ $@
