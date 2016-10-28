@@ -70,16 +70,31 @@ set_init_vars () { _
 
     var pwd $PWD -set_tail
 
-    
+    var git `which git` || exit 1
+
+    var git_top_level_dir \
+        `$git rev-parse --show-toplevel` \
+        -check_if_dir_exists || exit 1 
+
+    if [ $pwd != $git_top_level_dir ] ; then 
+        em please enter git_top_level_dir $git_top_level_dir 
+        em to see which files will be added to gitignore
+        exit
+    fi
+
+    var gitignore \
+        "$git_top_level_dir/.gitignore"
 } 
 
 add_files_to_git_ignore () { _ $@
 
     add_file_to_gitignore () { _ $@
-        echo $1 >> .gitignore
+        echo $1 >> $2
     } 
 
     #                            body                           #   
+
+    cd $git_top_level_dir || exit 1
     
     for untracked_file in `git status | awk '
                                 $1 == "Untracked" {
@@ -93,10 +108,13 @@ add_files_to_git_ignore () { _ $@
                                     } 
                                 }
                                 '` ; do
-        add_file_to_gitignore $untracked_file
+        add_file_to_gitignore \
+            $untracked_file \
+            $gitignore
     done
 
-    cf .gitignore
+    cf $gitignore
+
     #                            end                            #   
 } 
 #                         #  body #                         #  
