@@ -201,9 +201,11 @@ _ () { # function that echoes the function name starts or ends
         *)
             case $func_state in
                 started) 
+                    echo
                     tput setaf 9 && tput bold
                     echo "${string_equal_to_number_of_spaces_to_indent}$func_name_to_echo : $@" 
                     tput sgr0
+                    echo
                 ;;
                 ended)   
                     #tput setaf 0 && tput bold
