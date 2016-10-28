@@ -6,6 +6,7 @@
 :sectnums:
 :helpful_bash_funcs_sh: link:./include_bash_scripts/helpful_bash_funcs.sh[helpful_bash_funcs.sh]
 :aliases_sh: link:./aliases.sh[aliases.sh]
+:add_files_to_gitignore_sh: link:./git_scripts/add_files_to_gitignore.sh[add_files_to_gitignore.sh]
 
 toc::[]
 
@@ -53,5 +54,21 @@ created. It might seem as overkill, but I like verbosity. Although for now
 `set_alias` function does not do much.
 
 Later I plan to include description for alias may be.
+
+== Git Scripts
+
+Collection of helpful Git scripts. For now just one, hopefully
+will be more
+
+=== Add Untracked Files To .gitignore
+
+The script {add_files_to_gitignore_sh} is script that is used
+to add all 'Untracked' files to `.gitignore`. 
+
+If you are not in top-level directory, script will show
+it to you and ask to go there and run `git status`
+again to make sure you want put those files to `.gitignore`.
+
+Script creates `.gitignore` if it does not exist.
 
 
