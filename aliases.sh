@@ -64,6 +64,7 @@ set_alias_to_script_file () { _ $@
 #                            body                           #   
 set_alias v vim
 set_alias vc 'vim ~/.bashrc'
+set_alias vim-vimrc 'vim ~/.vimrc'
 
 set_alias ssh-server 'ssh nikiforo@ssh.mpi-muelheim.mpg.de'
 
