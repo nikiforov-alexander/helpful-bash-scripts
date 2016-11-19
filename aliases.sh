@@ -91,6 +91,8 @@ set_alias_to_script_file "$MY_SCRIPTS_DIR/intelliijidea-scripts/run_intellijidea
 
 set_alias_to_script_file "$MY_SCRIPTS_DIR/gitkraken_scripts/run_gitkraken.sh"
 
+set_alias_to_script_file "$MY_SCRIPTS_DIR/eclipse_scripts/run_jee_eclipse.sh"
+
 #popd these will be defined manually
 alias --  -="popd +0"
 alias -- -1="popd +1"
