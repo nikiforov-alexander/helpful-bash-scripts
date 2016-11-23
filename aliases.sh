@@ -68,7 +68,8 @@ set_alias vim-vimrc 'vim ~/.vimrc'
 
 set_alias ssh-server 'ssh nikiforo@ssh.mpi-muelheim.mpg.de'
 
-set_alias ']' 'ls -xGhop'
+#set_alias ']' 'ls -xGhop'
+set_alias ']' "$MY_SCRIPTS_DIR/ls_change_scripts/ls-with-pwd.sh"
 set_alias ']]' 'ls -xGhotrp'
 
 set_alias '.' 'cd ..'
