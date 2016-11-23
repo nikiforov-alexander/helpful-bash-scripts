@@ -173,6 +173,7 @@ _ () { # function that echoes the function name starts or ends
             done
         else
             func_name_to_echo=${FUNCNAME[1]}
+            return 0
         fi
     fi
     #
