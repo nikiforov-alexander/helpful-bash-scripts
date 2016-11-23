@@ -7,6 +7,8 @@
 :helpful_bash_funcs_sh: link:./include_bash_scripts/helpful_bash_funcs.sh[helpful_bash_funcs.sh]
 :aliases_sh: link:./aliases.sh[aliases.sh]
 :add_files_to_gitignore_sh: link:./git_scripts/add_files_to_gitignore.sh[add_files_to_gitignore.sh]
+:ls_with_pwd: link:./ls_change_scripts/ls-with-pwd.sh[ls-with-pwd.sh]
+:imagesdir: ./images
 
 toc::[]
 
@@ -71,4 +73,16 @@ again to make sure you want put those files to `.gitignore`.
 
 Script creates `.gitignore` if it does not exist.
 
+=== Nice listing script
+
+I added {ls_with_pwd} script, that prints files nicely.
+
+The major difference that now it also prints `PWD`
+before actual `$` symbol.
+
+Also it colors file grouping them by first letter.
+
+Here is nice image:
+
+image::ls_with_small_number_of_files.png[snapshot]
 
