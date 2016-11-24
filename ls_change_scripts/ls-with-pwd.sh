@@ -100,6 +100,8 @@ print_PWD_and_show_label_after_listing_of_files () { #complex
 }
 set_init_vars () {
     term_width=`tput cols`
+    err=$MY_SCRIPTS_DIR/err
+    touch $err
     if [ $term_width -le 90 ] ; then
         small_print_limit=10
         alphabetic_print_limit=20
@@ -210,6 +212,7 @@ main_ls () {
             _
             echo -n -e "$pprev_first_symbol_of_the_file_before_prev: \
                 `ls -pd $pprev_first_symbol_of_the_file_before_prev* | grep -v "/" | awk 'NF==1 {printf("%s ",$1);}' ` " 
+
             echo $pprev_first_symbol_of_the_file_before_prev >> $err
             echo
             
