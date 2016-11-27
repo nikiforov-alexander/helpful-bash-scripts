@@ -102,4 +102,7 @@ alias -- -2="popd +2"
 alias -- -3="popd +3"
 alias -- -4="popd +4"
 alias -- -5="popd +5"
+# pushd: adds directory to stack, later can be accessed
+alias +="pushd . && dirs -v"
+
 #                            end                            #   
