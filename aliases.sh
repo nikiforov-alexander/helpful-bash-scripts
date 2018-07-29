@@ -69,8 +69,8 @@ set_alias va "vim $MY_SCRIPTS_DIR/aliases.sh"
 
 set_alias ssh-server 'ssh nikiforo@ssh.mpi-muelheim.mpg.de'
 
-#set_alias ']' 'ls -xGhop'
-set_alias ']' "$MY_SCRIPTS_DIR/ls_change_scripts/ls-with-pwd.sh"
+set_alias ']' 'ls -xGhop'
+#set_alias ']' "$MY_SCRIPTS_DIR/ls_change_scripts/ls-with-pwd.sh"
 set_alias ']]' 'ls -xGhotrp'
 
 set_alias '.' 'cd ..'
@@ -81,7 +81,7 @@ set_alias md 'mkdir -v'
 set_alias rmf '/bin/rm -f'
 
 set_alias sc "source ~/.bashrc"
-set_alias sa "source ~/.bash_aliases"
+set_alias sa "source ~/.bash_aliases $MY_SCRIPTS_DIR/aliases.sh"
 
 set_alias gs 'git status'
 
